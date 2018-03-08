@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 
 import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.GridLabelRenderer;
 import com.jjoe64.graphview.Viewport;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
@@ -20,8 +21,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class MainActivity extends AppCompatActivity {
-
-    private static final String url = "jdbc:mysql://116.68.64.55/projectR";
+//jdbc:mysql://116.68.64.55/projectR
+    private static final String url = "jdbc:mysql://138.197.1.111/projectR";
     private static final String user = "projectR";
     private static final String pass = "5TDF523yLU7oLJEX";
     TextView tv;
@@ -31,6 +32,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+
         tv = findViewById(R.id.texttrail);
 
 
@@ -119,6 +123,10 @@ public class MainActivity extends AppCompatActivity {
             viewport.setMaxY(50);
             viewport.setMaxX(150);
             viewport.setMinX(100);
+            GridLabelRenderer gridLabel = mGraph.getGridLabelRenderer();
+            gridLabel.setHorizontalAxisTitle("Speed");
+            gridLabel.setVerticalAxisTitle("Distance");
+
           //  mGraph.getViewport().setScalable(true); // enables horizontal zooming and scrolling
           //  mGraph.getViewport().setScalableY(true);
 

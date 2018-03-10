@@ -136,12 +136,12 @@ rowCount=rs.getRow();
             int in=-1;
             Double cumd=0.0;
             for(int i=0;i<count;i++){
-
-                if(cumd==d && Double.parseDouble(speed[i])==s){
+                cumd+=Double.valueOf(distance[i]);
+                if(Objects.equals(cumd, d)){
                     in=i;
                     break;
                 }
-                cumd+=Double.valueOf(distance[i]);
+
             }
             return in;
 

@@ -52,10 +52,7 @@ public class MainActivity extends AppCompatActivity {
 android.support.v7.widget.Toolbar toolbar;
 
 
-    //Setting the actionbarToggle to drawer layout
 
-
-    //calling sync state is necessary or else your hamburger icon wont show up
     Handler mHandler;
     View navHeader;
     @Override
@@ -77,49 +74,29 @@ android.support.v7.widget.Toolbar toolbar;
             // This method will trigger on item Click of navigation menu
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
-               // Toast.makeText(getApplicationContext(),"Touched",Toast.LENGTH_LONG).show();
-                //Check to see which item was being clicked and perform appropriate action
+
                 switch (menuItem.getItemId()) {
                     //Replacing the main content with ContentFragment Which is our Inbox View;
                     case R.id.dist_speed:
                         drawer.closeDrawers();
                         loading("Fetching data please wait...");
                         dialog.show();
-                       // tv.setText("Loading");
 
-                       // Toast.makeText(getApplicationContext(),"Loading",Toast.LENGTH_LONG).show();
+
+
                         new connTask().execute();
-                        //  navItemIndex = 0;
-                        //   CURRENT_TAG = TAG_HOME;
+
                         break;
                     case R.id.dis_time:
-                        //  navItemIndex = 1;
-                        //   CURRENT_TAG = TAG_PHOTOS;
+
+
                         break;
                     case R.id.settings:
-                        // navItemIndex = 2;
-                        //  CURRENT_TAG = TAG_MOVIES;
+
                         break;
-                    //  case R.id.nav_notifications:
-                    //   navItemIndex = 3;
-                    //   CURRENT_TAG = TAG_NOTIFICATIONS;
-                    //    break;
-                    //  case R.id.nav_settings:
-                    //   navItemIndex = 4;
-                    //   CURRENT_TAG = TAG_SETTINGS;
-                    //     break;
-                    // case R.id.nav_about_us:
-                    // launch new intent instead of loading fragment
-                    // startActivity(new Intent(MainActivity.this, AboutUsActivity.class));
-                    //     drawer.closeDrawers();
-                    //    return true;
-                    // case R.id.nav_privacy_policy:
-                    // launch new intent instead of loading fragment
-                    // startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
-                    //   drawer.closeDrawers();
-                    //  return true;
+
                     default:
-                        //  navItemIndex = 0;
+
                 }
 
                 //Checking if the item is in checked state or not, if not make it in checked state
@@ -130,7 +107,7 @@ android.support.v7.widget.Toolbar toolbar;
                 }
                 menuItem.setChecked(true);
 
-                // loadHomeFragment();
+
 
                 return true;
             }
@@ -141,7 +118,6 @@ android.support.v7.widget.Toolbar toolbar;
 
             @Override
             public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
                 super.onDrawerClosed(drawerView);
 
             }
@@ -149,26 +125,21 @@ android.support.v7.widget.Toolbar toolbar;
             @Override
             public void onDrawerOpened(View drawerView) {
 
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+
                 super.onDrawerOpened(drawerView);
                 navigationView.bringToFront();
                 navigationView.requestLayout();
             }
         };
 
-        //Setting the actionbarToggle to drawer layout
+
         drawer.addDrawerListener(actionBarDrawerToggle);
 
-        //calling sync state is necessary or else your hamburger icon wont show up
+
         actionBarDrawerToggle.syncState();
 
 
-//out=(TextView)findViewById(R.id.out) ;
 
-      //  tv = findViewById(R.id.texttrail);
-
-
-       // new connTask().execute();
     }
 private  void loading(String msg){
      dialog = new ProgressDialog(this); // this = YourActivity
@@ -176,66 +147,21 @@ private  void loading(String msg){
     dialog.setMessage(msg);
     dialog.setIndeterminate(true);
     dialog.setCanceledOnTouchOutside(false);
-    //dialog.show();
+
 }
-    private void connect() {
 
-    }
 
-    public void onselds() {
-     //   tv.setText("Loading");
-        Toast.makeText(getApplicationContext(),"Loading",Toast.LENGTH_LONG).show();
-        new connTask().execute();
 
-    }
     private void loadNavHeader() {
-        // name, website
-       // txtName.setText("Ravi Tamada");
-        //txtWebsite.setText("www.androidhive.info");
 
-        // loading header background image
-        //Glide.with(this).load(urlNavHeaderBg)
-          //      .crossFade()
-            //    .diskCacheStrategy(DiskCacheStrategy.ALL)
-              //  .into(imgNavHeaderBg);
-
-        // Loading profile image
-        //Glide.with(this).load(urlProfileImg)
-          //      .crossFade()
-            //    .thumbnail(0.5f)
-              //  .bitmapTransform(new CircleTransform(this))
-               // .diskCacheStrategy(DiskCacheStrategy.ALL)
-                //.into(imgProfile);
-
-        // showing dot next to notifications label
-      //  navigationView.getMenu().getItem(0).setOnMenuItemClickListener();
-    /*    navigationView.getMenu().getItem(1).setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-               // YourActivity.this.someFunctionInYourActivity();
-                onselds();
-                return true;
-            }
-        });*/
     }
 
 
 
-    private void selectNavMenu() {
-      //  navigationView.getMenu().getItem(navItemIndex).setChecked(true);
-    }
-   /* public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.drawer_view, menu);
-        return super.onCreateOptionsMenu(menu);
-    }*/
 
 
-    // private void setUpNavigationView() {
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
 
-    //}
+
 
 
 
@@ -317,7 +243,7 @@ class loadthread extends Thread{
           //  tv.setText("Success : "+ count + "  rows ");
 
 
-            
+
             series = new LineGraphSeries<DataPoint>();
             series.setOnDataPointTapListener(new OnDataPointTapListener() {
                 @Override
@@ -340,8 +266,7 @@ class loadthread extends Thread{
 
 
             viewport.setScalable(true);
-           // viewport.setScalableY(true);
-          //  viewport.setMinY(20);
+
             viewport.setMaxY(200);
             viewport.setMaxX(100);
             viewport.setMinX(0);
@@ -349,13 +274,7 @@ class loadthread extends Thread{
             gridLabel.setHorizontalAxisTitle("Distance");
             gridLabel.setVerticalAxisTitle("Speed");
 
-          //  mGraph.getViewport().setScalable(true); // enables horizontal zooming and scrolling
-          //  mGraph.getViewport().setScalableY(true);
 
-           // viewport.setScrollable(true);
-           // viewport.setScrollableY(true);
-            //Toast.makeText(getApplicationContext(), count, Toast.LENGTH_SHORT).show();
-          //  out.setText(Integer.toString(count));
             Double cumd=0.0;
             for(int i=0;i<count;i++){
                 cumd+=Double.valueOf(distance[i]);
